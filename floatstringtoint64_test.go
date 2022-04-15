@@ -1,4 +1,4 @@
-package gofloatconvert
+package gobignumber
 
 import (
 	"strconv"

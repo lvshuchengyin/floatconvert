@@ -1,4 +1,4 @@
-package gofloatconvert
+package gobignumber
 
 import (
 	"strconv"
@@ -19,13 +19,12 @@ func LeftPad2Len(s string, padStr string, overallLen int) string {
 	return retStr[(len(retStr) - overallLen):]
 }
 
-// IsValidFloat not support scientific notation
 func IsValidFloat(s string) (v bool) {
-	if strings.Contains(s, "e") || strings.Contains(s, "E") {
+	if strings.Contains(s, "e") || strings.Contains(s, "E") || strings.HasPrefix(s, ".") {
 		v = false
 		return
 	}
-	_, err := strconv.ParseFloat(s, 64)
+	_, err := strconv.ParseFloat(s, 32)
 	v = err == nil
 	return
 }

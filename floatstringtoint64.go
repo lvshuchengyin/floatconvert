@@ -1,10 +1,11 @@
-package gofloatconvert
+package gobignumber
 
 import (
 	"strings"
 )
 
-// FloatStringToInt64 convert float string to 10 * decimalPlaces int64, in case of precision problem
+// FloatStringToInt64 convert float string to 10 * decimalPlaces int64, in case of precision problem,
+// not deal with overflow case, please use bignumber to deal over max int64 number
 func FloatStringToInt64(s string, decimalPlaces int) (i int64, err error) {
 	s = strings.TrimSpace(s)
 
